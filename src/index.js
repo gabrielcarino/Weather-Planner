@@ -30,7 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
       })
   };
   const weekForecastCard = function (forecastData) {
-
+    const forecastCard = document.getElementById("7-day-forecast");
+    console.log(forecastData);
+    document.getElementById("plan-container").classList.remove("hidden");
+    forecastData.forEach(day => {
+      const miniForecastCard = document.createElement("div")
+      forecastCard.append(miniForecastCard);
+      miniForecastCard.className = "mini-forecast"
+      miniForecastCard.innerHTML = 
+        `<h3>${day.date.toString().slice(4,6)}/${day.date.toString().slice(6)}</h3>
+        <h3>${day.weather}</h3>
+        <h3>High of ${(day.temp2m.max*(9/5)+32).toFixed(0)}</h3>
+        <h3>Low of ${(day.temp2m.min*(9/5)+32).toFixed(0)}</h3>`
+    })
   };
   const dayForecastCard = function (targetDate, prefTemp) {
 
@@ -39,8 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
 /*
   plan:
   convert zipcode to geocode using google's api
-  take geocode and input to 7Timer api 
-  fetch weather info and return forecast 
+  t̶a̶k̶e̶ g̶e̶o̶c̶o̶d̶e̶ a̶n̶d̶ i̶n̶p̶u̶t̶ t̶o̶ 7̶T̶i̶m̶e̶r̶ a̶p̶i̶ 
+  f̶e̶t̶c̶h̶ w̶e̶a̶t̶h̶e̶r̶ i̶n̶f̶o̶ a̶n̶d̶ r̶e̶t̶u̶r̶n̶ f̶o̶r̶e̶c̶a̶s̶t̶ 
   take forecast and append to HTML:
   make current day forecast card with plan for the day
   7-day forecast below it 

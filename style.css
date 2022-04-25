@@ -13,3 +13,18 @@ header {
 .hidden {
   display: none;
 }
+.forecast-card {
+  text-align: center;
+}
+.mini-forecast {
+  display:inline-block;
+  text-align: center;
+  border: black solid 4px;
+  width: 6rem;
+  height: 10rem;
+  margin: .25rem .25rem;
+  box-shadow: 5px 5px green;
+}
+.mini-forecast > * {
+  margin: .4rem;
+}
