@@ -2,21 +2,20 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("input-form").addEventListener("submit", (e) => {
     e.preventDefault();
     const zip = e.target.zip.value;
-    const prefTemp = e.target.temp.value;
     const date = e.target.date.value;
-    fetchGeoCode(zip, date, prefTemp)
+    fetchGeoCode(zip, date)
     e.target.reset();
   });
-  const fetchGeoCode = function (zip, date, temp) {
+  const fetchGeoCode = function (zip, date) {
     // fetch(/*some geocode api that's hopefully free*/)
     //   .then(/*covert to json*/)
     //   .then(/*call fetchWeather(lon,lat)*/)
     //   .catch(/*return error message*/)
 
     //temporary test parameters:
-    fetchWeather(-87.789000, 41.869780, date, temp);
+    fetchWeather(-87.789000, 41.869780, date);
   };
-  const fetchWeather = function (lon, lat, date, temp) {
+  const fetchWeather = function (lon, lat, date) {
     const usableDate = parseInt(date.slice(0,4) + date.slice(5,7) + date.slice(8))
     fetch(`http://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`)
       .then(resp => resp.json())
@@ -26,14 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         let weekForecast = resp.dataseries;
         weekForecastCard(weekForecast);
-        dayForecastCard(targetDate, temp);
+        dayForecastCard(targetDate);
       })
   };
   const weekForecastCard = function (forecastData) {
+    if (document.querySelectorAll(".mini-forecast")) {
+      document.querySelectorAll(".mini-forecast").forEach(el => el.remove());
+    };
     const forecastCard = document.getElementById("7-day-forecast");
-    document.getElementById("plan-container").classList.remove("hidden");
+    document.getElementById("container").classList.remove("hidden");
     forecastData.forEach(day => {
-      const miniForecastCard = document.createElement("div")
+      const miniForecastCard = document.createElement("div");
       forecastCard.append(miniForecastCard);
       miniForecastCard.className = "mini-forecast"
       miniForecastCard.innerHTML = 
@@ -41,10 +43,28 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3 class=${day.weather}>${day.weather}</h3>
         <h3>High of ${(day.temp2m.max*(9/5)+32).toFixed(0)}</h3>
         <h3>Low of ${(day.temp2m.min*(9/5)+32).toFixed(0)}</h3>
-        <h3 class=${day.wind10m_max}></h3>`
+        <h3 class=${day.wind10m_max}></h3>`;
     })
   };
-  const dayForecastCard = function (targetDate, prefTemp) {
+  const dayForecastCard = function (targetDate) {
+    const planContainer = document.getElementById("plan-container");
+    if (document.querySelector(".forecast-card")) {
+      document.querySelector(".forecast-card").remove()
+    };
+    const forecastCard = document.createElement("div");
+    planContainer.append(forecastCard);
+    forecastCard.className = "forecast-card"
+    forecastCard.innerHTML = 
+    `<h3>${targetDate.date.toString().slice(4,6)}/${targetDate.date.toString().slice(6)}</h3>
+    <h3 class=${targetDate.weather}>${targetDate.weather}</h3>
+    <h3>High of ${(targetDate.temp2m.max*(9/5)+32).toFixed(0)}°F</h3>
+    <h3>Low of ${(targetDate.temp2m.min*(9/5)+32).toFixed(0)}°F</h3>
+    <h3 class=${targetDate.wind10m_max}></h3>`;
+    const planCard = document.createElement("div");
+    planContainer.append(planCard);
+    planCard.className = "plan-card";
+    planCard.innerHtml = 
+    `<`
     readable();
   };
   //make displayed data readable
@@ -72,9 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
   convert zipcode to geocode using google's api
   t̶a̶k̶e̶ g̶e̶o̶c̶o̶d̶e̶ a̶n̶d̶ i̶n̶p̶u̶t̶ t̶o̶ 7̶T̶i̶m̶e̶r̶ a̶p̶i̶ 
   f̶e̶t̶c̶h̶ w̶e̶a̶t̶h̶e̶r̶ i̶n̶f̶o̶ a̶n̶d̶ r̶e̶t̶u̶r̶n̶ f̶o̶r̶e̶c̶a̶s̶t̶ 
-  take forecast and append to HTML:
+  t̶a̶k̶e̶ f̶o̶r̶e̶c̶a̶s̶t̶ a̶n̶d̶ a̶p̶p̶e̶n̶d̶ t̶o̶ H̶T̶M̶L̶:̶
   make current day forecast card with plan for the day
-  7-day forecast below it 
+  7̶-̶d̶a̶y̶ f̶o̶r̶e̶c̶a̶s̶t̶ b̶e̶l̶o̶w̶ i̶t̶ 
 
   for plan: return suggestions for clothing to wear depending on forecast 
   compared to preffered temperature.

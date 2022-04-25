@@ -13,7 +13,31 @@ header {
 .hidden {
   display: none;
 }
+#plan-container {
+  margin-left: 7.5vw;
+  width: 85vw;
+  height: 25vw;
+}
 .forecast-card {
+  display: inline-block;
+  text-align: center;
+  border: black solid 4px;
+  width: 18vw;
+  height: inherit;
+  box-shadow: 10px 10px green;
+}
+.forecast-card > * {
+  margin: 1rem;
+}
+.plan-card {
+  float: right;
+  text-align: left;
+  border: black solid 4px;
+  width: 60vw;
+  height: inherit;
+  box-shadow: 10px 10px green;
+}
+.forecast-7-card {
   text-align: center;
 }
 .mini-forecast {
