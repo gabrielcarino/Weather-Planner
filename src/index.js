@@ -68,12 +68,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const planCard = document.createElement("div");
     planContainer.append(planCard);
     planCard.className = "plan-card";
+    fetch("http://localhost:3000/tempRecs")
+      .then(resp => resp.json())
+      .then(resp => console.log(resp));
     planCard.innerHTML = `
     <div>
       <h3>Clothing</h3>
       <p></p>
-    </div>
-    <div>
+    </div>`
+    fetch("http://localhost:3000/weatherRecs")
+      .then(resp => resp.json())
+      .then(resp => console.log(resp));
+    `<div>
       <h3>Gear</h3>
       <p></p>
     </div>`;
