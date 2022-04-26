@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   document.getElementById("new-plan").addEventListener("click", () => {
     document.getElementById("input-form").classList.remove("hidden");
-    document.getElementById("new-plan").classList.add("hidden");
+    document.getElementById("new-plan").classList.add("hidden"); 
   })
 });
 /*
