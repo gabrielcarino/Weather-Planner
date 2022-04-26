@@ -2,41 +2,83 @@
   "tempRecs": [
     {
       "temp": "veryCold",
-      "top":"",
-      "bottom":"",
-      "shoes":""
+      "top": "",
+      "bottom": "",
+      "shoes": ""
     },
     {
       "temp": "cold",
-      "top":"",
-      "bottom":"",
-      "shoes":""
+      "top": "",
+      "bottom": "",
+      "shoes": ""
     },
     {
       "temp": "ideal",
-      "top":"",
-      "bottom":"",
-      "shoes":""
+      "top": "",
+      "bottom": "",
+      "shoes": ""
     },
     {
       "temp": "warm",
-      "top":"",
-      "bottom":"",
-      "shoes":""
+      "top": "",
+      "bottom": "",
+      "shoes": ""
     },
     {
       "temp": "hot",
-      "top":"",
-      "bottom":"",
-      "shoes":""
+      "top": "",
+      "bottom": "",
+      "shoes": ""
     },
     {
       "temp": "blistering",
-      "top":"",
-      "bottom":"",
-      "shoes":""
+      "top": "",
+      "bottom": "",
+      "shoes": ""
     }
   ],
-  "weatherRecs": [],
+  "weatherRecs": [
+    {
+      "clear": [
+        "sunscreen",
+        "hat",
+        "sunglasses",
+        "parasol"
+      ]
+    },
+    {
+      "pcloudy": []
+    },
+    {
+      "mcloudy": []
+    },
+    {
+      "cloudy": []
+    },
+    {
+      "humid": []
+    },
+    {
+      "lightrain": []
+    },
+    {
+      "oshower": []
+    },
+    {
+      "ishower": []
+    },
+    {
+      "lightsnow": []
+    },
+    {
+      "rain": []
+    },
+    {
+      "snow": []
+    },
+    {
+      "rainsnow": []
+    }
+  ],
   "location": []
 }

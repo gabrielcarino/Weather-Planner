@@ -77,52 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>`;
     readable();
   };
-  const temperatureSuggestions = {
-    veryCold: {
-      top:"",
-      bottom:"",
-      shoes:""
-    },
-    cold: {
-      top:"",
-      bottom:"",
-      shoes:""
-    },
-    ideal: {
-      top:"",
-      bottom:"",
-      shoes:""
-    },
-    warm: {
-      top:"",
-      bottom:"",
-      shoes:""
-    },
-    hot: {
-      top:"",
-      bottom:"",
-      shoes:""
-    },
-    blistering: {
-      top:"",
-      bottom:"",
-      shoes:""
-    }
-  };
-  const weatherSuggestions = {
-    clear: ["sunscreen", "hat", "sunglasses", "parasol"],
-    pcloudy: [],
-    mcloudy: [],
-    cloudy: [],
-    humid: [],
-    lightrain: [],
-    oshower: [],
-    ishower: [],
-    lightsnow: [],
-    rain: [],
-    snow: [],
-    rainsnow: []
-  }
   //make displayed data readable
   const readable = function () {
     //wind speeds
