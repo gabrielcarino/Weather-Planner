@@ -1,0 +1,42 @@
+{
+  "tempRecs": [
+    {
+      "temp": "veryCold",
+      "top":"",
+      "bottom":"",
+      "shoes":""
+    },
+    {
+      "temp": "cold",
+      "top":"",
+      "bottom":"",
+      "shoes":""
+    },
+    {
+      "temp": "ideal",
+      "top":"",
+      "bottom":"",
+      "shoes":""
+    },
+    {
+      "temp": "warm",
+      "top":"",
+      "bottom":"",
+      "shoes":""
+    },
+    {
+      "temp": "hot",
+      "top":"",
+      "bottom":"",
+      "shoes":""
+    },
+    {
+      "temp": "blistering",
+      "top":"",
+      "bottom":"",
+      "shoes":""
+    }
+  ],
+  "weatherRecs": [],
+  "location": []
+}
