@@ -1,36 +1,42 @@
 {
   "tempRecs": [
     {
+      "id": 1,
       "temp": "veryCold",
       "top": "",
       "bottom": "",
       "shoes": ""
     },
     {
+      "id": 2,
       "temp": "cold",
       "top": "",
       "bottom": "",
       "shoes": ""
     },
     {
+      "id": 3,
       "temp": "ideal",
       "top": "",
       "bottom": "",
       "shoes": ""
     },
     {
+      "id": 4,
       "temp": "warm",
       "top": "",
       "bottom": "",
       "shoes": ""
     },
     {
+      "id": 5,
       "temp": "hot",
       "top": "",
       "bottom": "",
       "shoes": ""
     },
     {
+      "id": 6,
       "temp": "blistering",
       "top": "",
       "bottom": "",
@@ -39,6 +45,7 @@
   ],
   "weatherRecs": [
     {
+      "id": 1,
       "clear": [
         "sunscreen",
         "hat",
@@ -47,38 +54,56 @@
       ]
     },
     {
+      "id": 2,
       "pcloudy": []
     },
     {
+      "id": 3,
       "mcloudy": []
     },
     {
+      "id": 4,
       "cloudy": []
     },
     {
+      "id": 5,
       "humid": []
     },
     {
+      "id": 6,
       "lightrain": []
     },
     {
+      "id": 7,
       "oshower": []
     },
     {
+      "id": 8,
       "ishower": []
     },
     {
+      "id": 9,
       "lightsnow": []
     },
     {
+      "id": 10,
       "rain": []
     },
     {
+      "id": 11,
       "snow": []
     },
     {
+      "id": 12,
       "rainsnow": []
     }
   ],
-  "location": []
+  "location": [
+    {
+      "id": 1,
+      "zipcode": 60304,
+      "lat": 41.869780,
+      "lon": -87.789000
+    }
+  ]
 }
