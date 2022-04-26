@@ -3,6 +3,7 @@ body {
 }
 header {
   text-align: center;
+  background-image: radial-gradient(ellipse at bottom, yellow, red, indigo);
 }
 .input-container {
   text-align: center;

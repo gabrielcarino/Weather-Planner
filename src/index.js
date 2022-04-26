@@ -1,20 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("input-form").addEventListener("submit", (e) => {
     e.preventDefault();
-    const zip = e.target.zip.value;
+    const lat = e.target.lat.value;
+    const lon = e.target.lon.value;
     const date = e.target.date.value;
-    fetchGeoCode(zip, date)
+    fetchWeather(lon, lat, date)
+    //fetchGeoCode(zip, date)
     e.target.reset();
   });
+/*
   const fetchGeoCode = function (zip, date) {
-    // fetch(/*some geocode api that's hopefully free*/)
-    //   .then(/*covert to json*/)
-    //   .then(/*call fetchWeather(lon,lat)*/)
-    //   .catch(/*return error message*/)
-
-    //temporary test parameters:
+    fetch(some geocode api that's hopefully free)
+      .then(covert to json)
+      .then(call fetchWeather(lon,lat))
+      .catch(return error message)
     fetchWeather(-87.789000, 41.869780, date);
   };
+*/
   const fetchWeather = function (lon, lat, date) {
     const usableDate = parseInt(date.slice(0,4) + date.slice(5,7) + date.slice(8))
     fetch(`http://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`)
