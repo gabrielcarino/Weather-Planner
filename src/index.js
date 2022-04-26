@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
           clothes .innerHTML = `
         <h3>Clothing</h3>
         <ul>
-          <li>Top:</li>
-          <li>Bottom:</li>
-          <li>Shoes:</li>
+          <li>Top:${tempRec.top}</li>
+          <li>Bottom:${tempRec.bottom}</li>
+          <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
         else if (targetDate.temp2m.max < 5) {
@@ -92,9 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
           clothes .innerHTML = `
         <h3>Clothing</h3>
         <ul>
-          <li>Top:</li>
-          <li>Bottom:</li>
-          <li>Shoes:</li>
+          <li>Top:${tempRec.top}</li>
+          <li>Bottom:${tempRec.bottom}</li>
+          <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
         else if (targetDate.temp2m.max < 15) {
@@ -104,9 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
           clothes .innerHTML = `
         <h3>Clothing</h3>
         <ul>
-          <li>Top:</li>
-          <li>Bottom:</li>
-          <li>Shoes:</li>
+          <li>Top:${tempRec.top}</li>
+          <li>Bottom:${tempRec.bottom}</li>
+          <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
         else if (targetDate.temp2m.max < 25) {
@@ -116,9 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
           clothes .innerHTML = `
         <h3>Clothing</h3>
         <ul>
-          <li>Top:</li>
-          <li>Bottom:</li>
-          <li>Shoes:</li>
+          <li>Top:${tempRec.top}</li>
+          <li>Bottom:${tempRec.bottom}</li>
+          <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
         else if (targetDate.temp2m.max < 30) {
@@ -128,9 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
           clothes .innerHTML = `
         <h3>Clothing</h3>
         <ul>
-          <li>Top:</li>
-          <li>Bottom:</li>
-          <li>Shoes:</li>
+          <li>Top:${tempRec.top}</li>
+          <li>Bottom:${tempRec.bottom}</li>
+          <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
         else if (targetDate.temp2m.max < 35) {
@@ -140,9 +140,9 @@ document.addEventListener("DOMContentLoaded", () => {
           clothes .innerHTML = `
         <h3>Clothing</h3>
         <ul>
-          <li>Top:</li>
-          <li>Bottom:</li>
-          <li>Shoes:</li>
+          <li>Top:${tempRec.top}</li>
+          <li>Bottom:${tempRec.bottom}</li>
+          <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
         else if (targetDate.temp2m.max >=35 ) {
@@ -152,9 +152,9 @@ document.addEventListener("DOMContentLoaded", () => {
           clothes .innerHTML = `
         <h3>Clothing</h3>
         <ul>
-          <li>Top:</li>
-          <li>Bottom:</li>
-          <li>Shoes:</li>
+          <li>Top:${tempRec.top}</li>
+          <li>Bottom:${tempRec.bottom}</li>
+          <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
       });
