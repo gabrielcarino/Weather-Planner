@@ -70,7 +70,94 @@ document.addEventListener("DOMContentLoaded", () => {
     planCard.className = "plan-card";
     fetch("http://localhost:3000/tempRecs")
       .then(resp => resp.json())
-      .then(resp => console.log(resp));
+      .then(suggestions => {
+        const clothes = document.createElement("div")
+        planCard.append(clothes)
+        if (targetDate.temp2m.max < -5) {
+          const tempRec = suggestions.find(rec => {
+            return rec.id === 0
+          })
+          clothes .innerHTML = `
+        <h3>Clothing</h3>
+        <ul>
+          <li>Top:</li>
+          <li>Bottom:</li>
+          <li>Shoes:</li>
+        </ul>`
+        }
+        else if (targetDate.temp2m.max < 5) {
+          const tempRec = suggestions.find(rec => {
+            return rec.id === 1
+          })
+          clothes .innerHTML = `
+        <h3>Clothing</h3>
+        <ul>
+          <li>Top:</li>
+          <li>Bottom:</li>
+          <li>Shoes:</li>
+        </ul>`
+        }
+        else if (targetDate.temp2m.max < 15) {
+          const tempRec = suggestions.find(rec => {
+            return rec.id === 2
+          })
+          clothes .innerHTML = `
+        <h3>Clothing</h3>
+        <ul>
+          <li>Top:</li>
+          <li>Bottom:</li>
+          <li>Shoes:</li>
+        </ul>`
+        }
+        else if (targetDate.temp2m.max < 25) {
+          const tempRec = suggestions.find(rec => {
+            return rec.id === 3
+          })
+          clothes .innerHTML = `
+        <h3>Clothing</h3>
+        <ul>
+          <li>Top:</li>
+          <li>Bottom:</li>
+          <li>Shoes:</li>
+        </ul>`
+        }
+        else if (targetDate.temp2m.max < 30) {
+          const tempRec = suggestions.find(rec => {
+            return rec.id === 4
+          })
+          clothes .innerHTML = `
+        <h3>Clothing</h3>
+        <ul>
+          <li>Top:</li>
+          <li>Bottom:</li>
+          <li>Shoes:</li>
+        </ul>`
+        }
+        else if (targetDate.temp2m.max < 35) {
+          const tempRec = suggestions.find(rec => {
+            return rec.id === 5
+          })
+          clothes .innerHTML = `
+        <h3>Clothing</h3>
+        <ul>
+          <li>Top:</li>
+          <li>Bottom:</li>
+          <li>Shoes:</li>
+        </ul>`
+        }
+        else if (targetDate.temp2m.max >=35 ) {
+          const tempRec = suggestions.find(rec => {
+            return rec.id === 6
+          })
+          clothes .innerHTML = `
+        <h3>Clothing</h3>
+        <ul>
+          <li>Top:</li>
+          <li>Bottom:</li>
+          <li>Shoes:</li>
+        </ul>`
+        }
+      });
     planCard.innerHTML = `
     <div>
       <h3>Clothing</h3>

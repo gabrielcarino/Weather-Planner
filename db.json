@@ -1,6 +1,13 @@
 {
   "tempRecs": [
     {
+      "id": 0,
+      "temp": "freezing",
+      "top": "",
+      "bottom": "",
+      "shoes": ""
+    },
+    {
       "id": 1,
       "temp": "veryCold",
       "top": "",
