@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     const forecastCard = document.getElementById("7-day-forecast");
     document.getElementById("container").classList.remove("hidden");
+    document.getElementById("input-form").classList.add("hidden");
+    document.getElementById("new-plan").classList.remove("hidden");
     forecastData.forEach(day => {
       const miniForecastCard = document.createElement("div");
       forecastCard.append(miniForecastCard);
@@ -49,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const dayForecastCard = function (targetDate) {
     const planContainer = document.getElementById("plan-container");
     if (document.querySelector(".forecast-card")) {
-      document.querySelector(".forecast-card").remove()
+      planContainer.innerHTML = "";
+
     };
     const forecastCard = document.createElement("div");
     planContainer.append(forecastCard);
@@ -63,29 +66,87 @@ document.addEventListener("DOMContentLoaded", () => {
     const planCard = document.createElement("div");
     planContainer.append(planCard);
     planCard.className = "plan-card";
-    planCard.innerHtml = 
-    `<`
+    planCard.innerHTML = `
+    <div>
+      <h3>Clothing</h3>
+      <p></p>
+    </div>
+    <div>
+      <h3>Gear</h3>
+      <p></p>
+    </div>`;
     readable();
   };
+  const temperatureSuggestions = {
+    veryCold: {
+      top:"",
+      bottom:"",
+      shoes:""
+    },
+    cold: {
+      top:"",
+      bottom:"",
+      shoes:""
+    },
+    ideal: {
+      top:"",
+      bottom:"",
+      shoes:""
+    },
+    warm: {
+      top:"",
+      bottom:"",
+      shoes:""
+    },
+    hot: {
+      top:"",
+      bottom:"",
+      shoes:""
+    },
+    blistering: {
+      top:"",
+      bottom:"",
+      shoes:""
+    }
+  };
+  const weatherSuggestions = {
+    clear: ["sunscreen", "hat", "sunglasses", "parasol"],
+    pcloudy: [],
+    mcloudy: [],
+    cloudy: [],
+    humid: [],
+    lightrain: [],
+    oshower: [],
+    ishower: [],
+    lightsnow: [],
+    rain: [],
+    snow: [],
+    rainsnow: []
+  }
   //make displayed data readable
   const readable = function () {
-  Array.from(document.getElementsByClassName("1")).forEach(el => el.innerHTML = "No Wind");
-  Array.from(document.getElementsByClassName("2")).forEach(el => el.innerHTML = "Winds up to 5mph");
-  Array.from(document.getElementsByClassName("3")).forEach(el => el.innerHTML = "Winds up to 15mph");
-  Array.from(document.getElementsByClassName("4")).forEach(el => el.innerHTML = "Winds up to 25mph");
-  Array.from(document.getElementsByClassName("5")).forEach(el => el.innerHTML = "Winds up to 40 mph");
-  Array.from(document.getElementsByClassName("6")).forEach(el => el.innerHTML = "Winds up to 55mph");
-  Array.from(document.getElementsByClassName("7")).forEach(el => el.innerHTML = "Winds up to 75mph");
-  Array.from(document.getElementsByClassName("8")).forEach(el => el.innerHTML = "Hurrican or Tornado Likely");
-
-  Array.from(document.getElementsByClassName("pcloudy")).forEach(el => el.innerHTML = "part. cloud");
-  Array.from(document.getElementsByClassName("mcloudy")).forEach(el => el.innerHTML = "most. cloudy");
-  Array.from(document.getElementsByClassName("lightrain")).forEach(el => el.innerHTML = "light rain");
-  Array.from(document.getElementsByClassName("oshower")).forEach(el => el.innerHTML = "occ. rain");
-  Array.from(document.getElementsByClassName("ishower")).forEach(el => el.innerHTML = "iso. rain");
-  Array.from(document.getElementsByClassName("lightsnow")).forEach(el => el.innerHTML = "light snow");
-  Array.from(document.getElementsByClassName("rainsnow")).forEach(el => el.innerHTML = "sleet");
+    //wind speeds
+    Array.from(document.getElementsByClassName("1")).forEach(el => el.innerHTML = "No Wind");
+    Array.from(document.getElementsByClassName("2")).forEach(el => el.innerHTML = "Winds up to 5mph");
+    Array.from(document.getElementsByClassName("3")).forEach(el => el.innerHTML = "Winds up to 15mph");
+    Array.from(document.getElementsByClassName("4")).forEach(el => el.innerHTML = "Winds up to 25mph");
+    Array.from(document.getElementsByClassName("5")).forEach(el => el.innerHTML = "Winds up to 40 mph");
+    Array.from(document.getElementsByClassName("6")).forEach(el => el.innerHTML = "Winds up to 55mph");
+    Array.from(document.getElementsByClassName("7")).forEach(el => el.innerHTML = "Winds up to 75mph");
+    Array.from(document.getElementsByClassName("8")).forEach(el => el.innerHTML = "Hurrican or Tornado Likely");
+    //weather states
+    Array.from(document.getElementsByClassName("pcloudy")).forEach(el => el.innerHTML = "part. cloud");
+    Array.from(document.getElementsByClassName("mcloudy")).forEach(el => el.innerHTML = "most. cloudy");
+    Array.from(document.getElementsByClassName("lightrain")).forEach(el => el.innerHTML = "light rain");
+    Array.from(document.getElementsByClassName("oshower")).forEach(el => el.innerHTML = "occ. rain");
+    Array.from(document.getElementsByClassName("ishower")).forEach(el => el.innerHTML = "iso. rain");
+    Array.from(document.getElementsByClassName("lightsnow")).forEach(el => el.innerHTML = "light snow");
+    Array.from(document.getElementsByClassName("rainsnow")).forEach(el => el.innerHTML = "sleet");
   }
+  document.getElementById("new-plan").addEventListener("click", () => {
+    document.getElementById("input-form").classList.remove("hidden");
+    document.getElementById("new-plan").classList.add("hidden");
+  })
 });
 /*
   plan:
@@ -93,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
   t̶a̶k̶e̶ g̶e̶o̶c̶o̶d̶e̶ a̶n̶d̶ i̶n̶p̶u̶t̶ t̶o̶ 7̶T̶i̶m̶e̶r̶ a̶p̶i̶ 
   f̶e̶t̶c̶h̶ w̶e̶a̶t̶h̶e̶r̶ i̶n̶f̶o̶ a̶n̶d̶ r̶e̶t̶u̶r̶n̶ f̶o̶r̶e̶c̶a̶s̶t̶ 
   t̶a̶k̶e̶ f̶o̶r̶e̶c̶a̶s̶t̶ a̶n̶d̶ a̶p̶p̶e̶n̶d̶ t̶o̶ H̶T̶M̶L̶:̶
-  make current day forecast card with plan for the day
+  m̶a̶k̶e̶ c̶u̶r̶r̶e̶n̶t̶ d̶a̶y̶ f̶o̶r̶e̶c̶a̶s̶t̶ c̶a̶r̶d̶ with plan for the day
   7̶-̶d̶a̶y̶ f̶o̶r̶e̶c̶a̶s̶t̶ b̶e̶l̶o̶w̶ i̶t̶ 
 
   for plan: return suggestions for clothing to wear depending on forecast 

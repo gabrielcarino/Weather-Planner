@@ -37,6 +37,13 @@ header {
   height: inherit;
   box-shadow: 10px 10px green;
 }
+.plan-card > * {
+  display: inline-block;
+  text-align: left;
+  width: 24vw;
+  height: inherit;
+  margin: 0vw 4vw 0vw 1vw;
+}
 .forecast-7-card {
   text-align: center;
 }
