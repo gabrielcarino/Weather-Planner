@@ -10,9 +10,9 @@ The user inputs their location as a zipcode or coordinates(in latitude and longi
 
 ## Visuals
 
-![image of webpage with inital input form](/images/visual1)
-![image of webpage with alternate input form](/images/visual2)
-![image of webpage after input is submitted](/images/visual3)
+![image of webpage with inital input form](/images/visual1.png)
+![image of webpage with alternate input form](/images/visual2.png)
+![image of webpage after input is submitted](/images/visual3.png)
 
 ## Usage
 
