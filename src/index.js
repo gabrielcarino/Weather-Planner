@@ -70,13 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const planCard = document.createElement("div");
     planContainer.append(planCard);
     planCard.className = "plan-card";
-    fetch("http://localhost:3000/tempRecs")
+    fetch("https://gabrielcarino.github.io/Weather-Planner-API/db.json")
       .then(resp => resp.json())
       .then(suggestions => {
         const clothes = document.createElement("div");
         planCard.append(clothes);
         if (targetDate.temp2m.max < -5 /*23°F*/) {
-          const tempRec = suggestions.find(rec => {
+          const tempRec = suggestions.tempRecs.find(rec => {
             return rec.id === 0
           })
           clothes .innerHTML = `
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max < 5 /*42°F*/) {
-          const tempRec = suggestions.find(rec => {
+          const tempRec = suggestions.tempRecs.find(rec => {
             return rec.id === 1
           })
           clothes .innerHTML = `
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max < 15 /*59°F*/) {
-          const tempRec = suggestions.find(rec => {
+          const tempRec = suggestions.tempRecs.find(rec => {
             return rec.id === 2
           })
           clothes .innerHTML = `
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max < 25 /*77°F*/) {
-          const tempRec = suggestions.find(rec => {
+          const tempRec = suggestions.tempRecs.find(rec => {
             return rec.id === 3
           })
           clothes .innerHTML = `
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max < 30 /*86°F*/) {
-          const tempRec = suggestions.find(rec => {
+          const tempRec = suggestions.tempRecs.find(rec => {
             return rec.id === 4
           })
           clothes .innerHTML = `
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max < 35 /*95°F*/) {
-          const tempRec = suggestions.find(rec => {
+          const tempRec = suggestions.tempRecs.find(rec => {
             return rec.id === 5
           })
           clothes .innerHTML = `
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max >=35 /*95°F or above*/) {
-          const tempRec = suggestions.find(rec => {
+          const tempRec = suggestions.tempRecs.find(rec => {
             return rec.id === 6
           })
           clothes .innerHTML = `
@@ -161,12 +161,12 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
       });
-    fetch("http://localhost:3000/weatherRecs")
+    fetch("https://gabrielcarino.github.io/Weather-Planner-API/db.json")
       .then(resp => resp.json())
       .then(suggestions => {
         const gearEl = document.createElement("div");
         planCard.append(gearEl);
-        const weatherRec = suggestions.find(rec => {
+        const weatherRec = suggestions.weatherRecs.find(rec => {
           return rec.weather === targetDate.weather;
         })
         gearEl.innerHTML = `
