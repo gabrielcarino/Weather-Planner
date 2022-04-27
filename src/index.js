@@ -1,22 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("input-form").addEventListener("submit", (e) => {
     e.preventDefault();
-    const lat = e.target.lat.value;
-    const lon = e.target.lon.value;
+    const zip = e.target.zip.value;
     const date = e.target.date.value;
-    fetchWeather(lon, lat, date)
-    //fetchGeoCode(zip, date)
+    fetchGeoCode(zip, date)
     e.target.reset();
   });
-/*
+
   const fetchGeoCode = function (zip, date) {
-    fetch(some geocode api that's hopefully free)
-      .then(covert to json)
-      .then(call fetchWeather(lon,lat))
-      .catch(return error message)
-    fetchWeather(-87.789000, 41.869780, date);
+    fetch("https://gabrielcarino.github.io/Weather-Planner-API/db.json")
+      .then(resp => resp.json())
+      .then(resp => {
+        const location = resp.locations.find(location => {
+          return location.zipcode === parseInt(zip);
+        });
+        if (location) {
+          const lon = location.lon;
+          const lat = location.lat;
+          fetchWeather(lon, lat, date);
+        }
+        else {
+          
+          alert("Zipcode not found, use form below to enter new location.")
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
   };
-*/
+
   const fetchWeather = function (lon, lat, date) {
     const usableDate = parseInt(date.slice(0,4) + date.slice(5,7) + date.slice(8))
     fetch(`http://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`)
