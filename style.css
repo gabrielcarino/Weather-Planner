@@ -25,7 +25,7 @@ header {
   border: black solid 4px;
   width: 18vw;
   height: inherit;
-  box-shadow: 10px 10px green;
+  box-shadow: 10px 10px #577e8f;
 }
 .forecast-card > * {
   margin: 1rem;
@@ -36,12 +36,12 @@ header {
   border: black solid 4px;
   width: 60vw;
   height: inherit;
-  box-shadow: 10px 10px green;
+  box-shadow: 10px 10px #577e8f;
 }
 .plan-card > * {
-  display: inline-block;
+  display: inline-table;
   text-align: left;
-  width: 24vw;
+  width: 23vw;
   height: inherit;
   margin: 0vw 4vw 0vw 1vw;
 }
@@ -55,8 +55,47 @@ header {
   width: 7rem;
   height: 10rem;
   margin: .25rem .25rem;
-  box-shadow: 5px 5px green;
+  box-shadow: 5px 5px #577e8f;
 }
 .mini-forecast > * {
   margin: .33rem;
+}
+li {
+  font-size: 18pt;
+}
+#clear {
+  background-color: skyblue;
+}
+#pcloudy {
+  background-image: linear-gradient(lightgray, skyblue 40%);
+}
+#mcloudy {
+  background-image: linear-gradient(gray, skyblue 60%);
+}
+#cloudy {
+  background-color: gray;
+}
+#humid {
+  background-color: lightgray;
+}
+#lightrain {
+  background-image: repeating-linear-gradient(.25turn, gray, gray 20px, skyblue 2px, gray 25px);
+}
+#oshower {
+  background-image: repeating-linear-gradient(.25turn, gray, gray 20px, skyblue 2px, gray 25px);
+}
+#ishower {
+  background-image: repeating-linear-gradient(.25turn, gray, gray 20px, skyblue 2px, gray 25px);
+}
+#lightsnow {
+  background-image: repeating-linear-gradient(.25turn, gray, gray 20px, white 2px, gray 25px);
+}
+#rain {
+  background-image: repeating-linear-gradient(.25turn, gray, gray 20px, skyblue 5px, gray 25px);
+}
+#snow{
+  background-image: repeating-linear-gradient(.25turn, gray, gray 20px, white 5px, gray 25px);
+}
+#rainsnow {
+  background-image: repeating-linear-gradient(.25turn, gray, gray 20px, lightgray 2px, gray 25px);
 }

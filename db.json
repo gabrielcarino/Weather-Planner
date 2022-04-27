@@ -3,57 +3,59 @@
     {
       "id": 0,
       "temp": "freezing",
-      "top": "",
-      "bottom": "",
-      "shoes": ""
+      "top": "Thick Coat, Thermal long-sleeve, Down jacket",
+      "bottom": "Lined jeans, Leggings, Sweats",
+      "shoes": "Warm boots & thick (wool) socks"
     },
     {
       "id": 1,
       "temp": "veryCold",
-      "top": "",
-      "bottom": "",
-      "shoes": ""
+      "top": "Jacket, Hoodie, Long-sleeve",
+      "bottom": "Jeans, Leggings, Sweats",
+      "shoes": "Boots & warm socks"
     },
     {
       "id": 2,
       "temp": "cold",
-      "top": "",
-      "bottom": "",
-      "shoes": ""
+      "top": "Hoodie, Long-sleeve, T-shirt & Zip-up",
+      "bottom": "Jeans, Leggings, Sweats",
+      "shoes": "Any closed toe shoe"
     },
     {
       "id": 3,
       "temp": "ideal",
-      "top": "",
-      "bottom": "",
-      "shoes": ""
+      "top": "T-shirt, Light jacket or hoodie, Athletic-wear",
+      "bottom": "Jeans, Shorts, Athletic-wear",
+      "shoes": "Tennis-shoes, Sneakers, comfy walking shoes"
     },
     {
       "id": 4,
       "temp": "warm",
-      "top": "",
-      "bottom": "",
-      "shoes": ""
+      "top": "T-shirt, Light button-up or blouse",
+      "bottom": "Linen, shorts, skirts",
+      "shoes": "Sneakers, Sandals, something breathable"
     },
     {
       "id": 5,
       "temp": "hot",
-      "top": "",
-      "bottom": "",
-      "shoes": ""
+      "top": "T-shirt, Tank-top, Light button-up or blouse",
+      "bottom": "Shorts, Skirts, Linen, Sundress",
+      "shoes": "Sandals, light breathable shoes"
     },
     {
       "id": 6,
       "temp": "blistering",
-      "top": "",
-      "bottom": "",
-      "shoes": ""
+      "top": "Swim suit",
+      "bottom": "Swim suit",
+      "shoes": "Flip-flops",
+      "beach": "Go swimming (fill your bathtub with cold water if you have to..."
     }
   ],
   "weatherRecs": [
     {
       "id": 1,
-      "clear": [
+      "weather": "clear", 
+      "gear": [
         "sunscreen",
         "hat",
         "sunglasses",
@@ -62,47 +64,91 @@
     },
     {
       "id": 2,
-      "pcloudy": []
+      "weather":"pcloudy",
+      "gear": [
+        "sunscreen",
+        "hat",
+        "sunglasses"
+      ]
     },
     {
       "id": 3,
-      "mcloudy": []
+      "weather": "mcloudy",
+      "gear": [
+        "sunscreen",
+        "extra layer"
+      ]
     },
     {
       "id": 4,
-      "cloudy": []
+      "weather": "cloudy",
+      "gear": [
+        "extra layer"
+      ]
     },
     {
       "id": 5,
-      "humid": []
+      "weather": "humid",
+      "gear": [
+        "breathable clothes"
+      ]
     },
     {
       "id": 6,
-      "lightrain": []
+      "weather": "lightrain",
+      "gear": [
+        "wind breaker or light rain jacket",
+        "umbrella"
+      ]
     },
     {
       "id": 7,
-      "oshower": []
+      "weather": "oshower",
+      "gear": [
+        "wind breaker or light rain jacket",
+        "umbrella"
+      ]
     },
     {
       "id": 8,
-      "ishower": []
+      "weather": "ishower",
+      "gear": [
+        "wind breaker or light rain jacket",
+        "umbrella"
+      ]
     },
     {
       "id": 9,
-      "lightsnow": []
+      "weather": "lightsnow",
+      "gear": [
+        "wind breaker or snow jacket"
+      ]
     },
     {
       "id": 10,
-      "rain": []
+      "weather": "rain",
+      "gear": [
+        "rain jacket",
+        "umbrella",
+        "waterproof boots"
+      ]
     },
     {
       "id": 11,
-      "snow": []
+      "weather": "snow",
+      "gear": [
+        "snow jacket",
+        "sunscreen",
+        "beanie"
+      ]
     },
     {
       "id": 12,
-      "rainsnow": []
+      "weather": "rainsnow",
+      "gear": [
+        "wind breaker or rain jacket",
+        "umbrella"
+      ]
     }
   ],
   "location": [

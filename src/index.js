@@ -41,7 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
     forecastData.forEach(day => {
       const miniForecastCard = document.createElement("div");
       forecastCard.append(miniForecastCard);
-      miniForecastCard.className = "mini-forecast"
+      miniForecastCard.className = "mini-forecast";
+      miniForecastCard.id = `${day.weather}`;
       miniForecastCard.innerHTML = 
         `<h3>${day.date.toString().slice(4,6)}/${day.date.toString().slice(6)}</h3>
         <h3 class=${day.weather}>${day.weather}</h3>
@@ -58,7 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     const forecastCard = document.createElement("div");
     planContainer.append(forecastCard);
-    forecastCard.className = "forecast-card"
+    forecastCard.className = "forecast-card";
+    forecastCard.id = `${targetDate.weather}`
     forecastCard.innerHTML = 
     `<h3>${targetDate.date.toString().slice(4,6)}/${targetDate.date.toString().slice(6)}</h3>
     <h3 class=${targetDate.weather}>${targetDate.weather}</h3>
@@ -71,9 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("http://localhost:3000/tempRecs")
       .then(resp => resp.json())
       .then(suggestions => {
-        const clothes = document.createElement("div")
-        planCard.append(clothes)
-        if (targetDate.temp2m.max < -5) {
+        const clothes = document.createElement("div");
+        planCard.append(clothes);
+        if (targetDate.temp2m.max < -5 /*23°F*/) {
           const tempRec = suggestions.find(rec => {
             return rec.id === 0
           })
@@ -85,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
-        else if (targetDate.temp2m.max < 5) {
+        else if (targetDate.temp2m.max < 5 /*42°F*/) {
           const tempRec = suggestions.find(rec => {
             return rec.id === 1
           })
@@ -97,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
-        else if (targetDate.temp2m.max < 15) {
+        else if (targetDate.temp2m.max < 15 /*59°F*/) {
           const tempRec = suggestions.find(rec => {
             return rec.id === 2
           })
@@ -109,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
-        else if (targetDate.temp2m.max < 25) {
+        else if (targetDate.temp2m.max < 25 /*77°F*/) {
           const tempRec = suggestions.find(rec => {
             return rec.id === 3
           })
@@ -121,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
-        else if (targetDate.temp2m.max < 30) {
+        else if (targetDate.temp2m.max < 30 /*86°F*/) {
           const tempRec = suggestions.find(rec => {
             return rec.id === 4
           })
@@ -133,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
-        else if (targetDate.temp2m.max < 35) {
+        else if (targetDate.temp2m.max < 35 /*95°F*/) {
           const tempRec = suggestions.find(rec => {
             return rec.id === 5
           })
@@ -145,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <li>Shoes:${tempRec.shoes}</li>
         </ul>`
         }
-        else if (targetDate.temp2m.max >=35 ) {
+        else if (targetDate.temp2m.max >=35 /*95°F or above*/) {
           const tempRec = suggestions.find(rec => {
             return rec.id === 6
           })
@@ -155,21 +157,28 @@ document.addEventListener("DOMContentLoaded", () => {
           <li>Top:${tempRec.top}</li>
           <li>Bottom:${tempRec.bottom}</li>
           <li>Shoes:${tempRec.shoes}</li>
+          <li>${tempRec.beach}</li>
         </ul>`
         }
       });
-    planCard.innerHTML = `
-    <div>
-      <h3>Clothing</h3>
-      <p></p>
-    </div>`
     fetch("http://localhost:3000/weatherRecs")
       .then(resp => resp.json())
-      .then(resp => console.log(resp));
-    `<div>
-      <h3>Gear</h3>
-      <p></p>
-    </div>`;
+      .then(suggestions => {
+        const gearEl = document.createElement("div");
+        planCard.append(gearEl);
+        const weatherRec = suggestions.find(rec => {
+          return rec.weather === targetDate.weather;
+        })
+        gearEl.innerHTML = `
+        <h3>Gear</h3>`;
+        const gearList = document.createElement("ul");
+        gearEl.append(gearList);
+        weatherRec.gear.forEach(i => {
+          const gearItem = document.createElement("li");
+          gearList.append(gearItem);
+          gearItem.innerText = i
+        })
+      });
     readable();
   };
   //make displayed data readable
