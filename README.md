@@ -16,5 +16,5 @@ The user inputs their location as a zipcode or coordinates(in latitude and longi
 
 ## Usage
 
-when given input data do this => expected results
+When given a location in the form of a zipcode or coordinates, and a date that is valid for that location(date must fall between the current date at that location and the date 6 days from then. ie: Today is 04/27/2022, the input date could be any date from 04/27/2022-05/03/2022), the DOM will be updated to display pertenant information about that locations weather for the following 7 days and what to wear/bring on the selected date.
 
