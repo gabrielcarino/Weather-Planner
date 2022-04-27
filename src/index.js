@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 */
   const fetchWeather = function (lon, lat, date) {
     const usableDate = parseInt(date.slice(0,4) + date.slice(5,7) + date.slice(8))
-    fetch(`http://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`)
+    fetch(`https://cors-anywhere.herokuapp.com/http://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`)
       .then(resp => resp.json())
       .then(resp => {
         let targetDate = resp.dataseries.find(day => {
