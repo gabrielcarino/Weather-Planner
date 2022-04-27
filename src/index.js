@@ -3,15 +3,26 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const zip = e.target.zip.value;
     const date = e.target.date.value;
-    fetchGeoCode(zip, date)
+    fetchGeoCode(zip, date);
     e.target.reset();
   });
 
+  document.getElementById("location-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const date = e.target.date.value;
+    const lat = e.target.lat.value;
+    const lon = e.target.lon.value;
+    fetchWeather(lon, lat, date);
+    e.target.reset();
+    document.getElementById("input-form").classList.remove("hidden");
+    document.getElementById("location-form").classList.add("hidden");
+  });
+
   const fetchGeoCode = function (zip, date) {
-    fetch("https://gabrielcarino.github.io/Weather-Planner-API/db.json")
+    fetch("https://gabrielcarino.github.io/Weather-Planner-API/locations.json")
       .then(resp => resp.json())
-      .then(resp => {
-        const location = resp.locations.find(location => {
+      .then(locations => {
+        const location = locations.find(location => {
           return location.zipcode === parseInt(zip);
         });
         if (location) {
@@ -20,9 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
           fetchWeather(lon, lat, date);
         }
         else {
-          
-          alert("Zipcode not found, use form below to enter new location.")
-        }
+          document.getElementById("input-form").classList.add("hidden");
+          document.getElementById("location-form").classList.remove("hidden");
+          alert("Zipcode not found, use form below to enter coordinates instead.");
+        };
       })
       .catch(error => {
         console.log(error);
@@ -42,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dayForecastCard(targetDate);
       })
   };
+
   const weekForecastCard = function (forecastData) {
     if (document.querySelectorAll(".mini-forecast")) {
       document.querySelectorAll(".mini-forecast").forEach(el => el.remove());
@@ -63,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3 class=${day.wind10m_max}></h3>`;
     })
   };
+
   const dayForecastCard = function (targetDate) {
     const planContainer = document.getElementById("plan-container");
     if (document.querySelector(".forecast-card")) {
@@ -82,13 +96,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const planCard = document.createElement("div");
     planContainer.append(planCard);
     planCard.className = "plan-card";
-    fetch("https://gabrielcarino.github.io/Weather-Planner-API/db.json")
+    fetch("https://gabrielcarino.github.io/Weather-Planner-API/tempRecs.json")
       .then(resp => resp.json())
-      .then(suggestions => {
+      .then(tempRecs => {
         const clothes = document.createElement("div");
         planCard.append(clothes);
         if (targetDate.temp2m.max < -5 /*23°F*/) {
-          const tempRec = suggestions.tempRecs.find(rec => {
+          const tempRec = tempRecs.find(rec => {
             return rec.id === 0
           })
           clothes .innerHTML = `
@@ -100,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max < 5 /*42°F*/) {
-          const tempRec = suggestions.tempRecs.find(rec => {
+          const tempRec = tempRecs.find(rec => {
             return rec.id === 1
           })
           clothes .innerHTML = `
@@ -112,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max < 15 /*59°F*/) {
-          const tempRec = suggestions.tempRecs.find(rec => {
+          const tempRec = tempRecs.find(rec => {
             return rec.id === 2
           })
           clothes .innerHTML = `
@@ -124,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max < 25 /*77°F*/) {
-          const tempRec = suggestions.tempRecs.find(rec => {
+          const tempRec = tempRecs.find(rec => {
             return rec.id === 3
           })
           clothes .innerHTML = `
@@ -136,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max < 30 /*86°F*/) {
-          const tempRec = suggestions.tempRecs.find(rec => {
+          const tempRec = tempRecs.find(rec => {
             return rec.id === 4
           })
           clothes .innerHTML = `
@@ -148,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max < 35 /*95°F*/) {
-          const tempRec = suggestions.tempRecs.find(rec => {
+          const tempRec = tempRecs.find(rec => {
             return rec.id === 5
           })
           clothes .innerHTML = `
@@ -160,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
         else if (targetDate.temp2m.max >=35 /*95°F or above*/) {
-          const tempRec = suggestions.tempRecs.find(rec => {
+          const tempRec = tempRecs.find(rec => {
             return rec.id === 6
           })
           clothes .innerHTML = `
@@ -173,12 +187,12 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
       });
-    fetch("https://gabrielcarino.github.io/Weather-Planner-API/db.json")
+    fetch("https://gabrielcarino.github.io/Weather-Planner-API/weatherRecs.json")
       .then(resp => resp.json())
-      .then(suggestions => {
+      .then(weatherRecs => {
         const gearEl = document.createElement("div");
         planCard.append(gearEl);
-        const weatherRec = suggestions.weatherRecs.find(rec => {
+        const weatherRec = weatherRecs.find(rec => {
           return rec.weather === targetDate.weather;
         })
         gearEl.innerHTML = `
@@ -193,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     readable();
   };
+
   //make displayed data readable
   const readable = function () {
     //wind speeds
@@ -212,14 +227,17 @@ document.addEventListener("DOMContentLoaded", () => {
     Array.from(document.getElementsByClassName("ishower")).forEach(el => el.innerHTML = "iso. rain");
     Array.from(document.getElementsByClassName("lightsnow")).forEach(el => el.innerHTML = "light snow");
     Array.from(document.getElementsByClassName("rainsnow")).forEach(el => el.innerHTML = "sleet");
-  }
+  };
+
   document.getElementById("new-plan").addEventListener("click", () => {
     document.getElementById("input-form").classList.remove("hidden");
     document.getElementById("new-plan").classList.add("hidden"); 
-  })
+  });
+
   document.getElementById("red-btn").addEventListener("mouseover", () => {
     alert("Don't you do it!");
   });
+
   document.getElementById("red-btn").addEventListener("click", () => {
     alert("Now look what you did!");
     document.querySelector("body").innerHTML = '';

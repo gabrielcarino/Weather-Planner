@@ -24,23 +24,25 @@
       <br>
       <input type="submit" name="submit" value="Plan!" class="submit">
       <p>
-        *Enter the coordinates of the location you will be closest to for the majority of your day or time you wish to plan
+        *Enter the zipcode of the location you will be closest to for the majority of your day or time you wish to plan
         for.
         <br>
         **Date you would like to plan for within the next 7 days.
       </p>
     </form>
     <form id="location-form" class="hidden">
-      <h2 class="input-header">Add a new Location for us!</h2>
-      <label>Zipcode</label>
-      <input type="number" name="zip" value="" placeholder="Zipcode" class="input-text">
+      <h2 class="input-header">Your information:</h2>
+      <label>Date</label>
+      <input type="date" name="date" value="" class="input-text">
       <br>
       <label>*Latitude</label>
       <input type="number" step="0.00001" name="lat" value="" placeholder="Latitude" class="input-text">
       <label>*Longitude</label>
       <input type="number" step="0.00001" name="lon" value="" placeholder="Longitude" class="input-text">
+      <br>
+      <input type="submit" name="submit" value="Plan!" class="submit">
       <p>
-        *Coordinates can be found via <a href="https://developers.google.com/maps/documentation/geocoding/overview">Google Maps Geocoding API</a>
+        *Coordinates can be found via <a href="https://developers.google.com/maps/documentation/geocoding/overview" target="_blank">Google Maps Geocoding API</a>
       </p>
     </form>
     <button id="new-plan"class="hidden">Plan another day?</button>
