@@ -99,3 +99,6 @@ li {
 #rainsnow {
   background-image: repeating-linear-gradient(.25turn, gray, gray 20px, lightgray 2px, gray 25px);
 }
+#red-btn {
+  background-color: red;
+}

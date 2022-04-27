@@ -205,28 +205,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("input-form").classList.remove("hidden");
     document.getElementById("new-plan").classList.add("hidden"); 
   })
+  document.getElementById("red-btn").addEventListener("mouseover", () => {
+    alert("Don't you do it!");
+  });
+  document.getElementById("red-btn").addEventListener("click", () => {
+    alert("Now look what you did!");
+    document.querySelector("body").innerHTML = '';
+  });
 });
-/*
-  plan:
-  convert zipcode to geocode using google's api
-  t̶a̶k̶e̶ g̶e̶o̶c̶o̶d̶e̶ a̶n̶d̶ i̶n̶p̶u̶t̶ t̶o̶ 7̶T̶i̶m̶e̶r̶ a̶p̶i̶ 
-  f̶e̶t̶c̶h̶ w̶e̶a̶t̶h̶e̶r̶ i̶n̶f̶o̶ a̶n̶d̶ r̶e̶t̶u̶r̶n̶ f̶o̶r̶e̶c̶a̶s̶t̶ 
-  t̶a̶k̶e̶ f̶o̶r̶e̶c̶a̶s̶t̶ a̶n̶d̶ a̶p̶p̶e̶n̶d̶ t̶o̶ H̶T̶M̶L̶:̶
-  m̶a̶k̶e̶ c̶u̶r̶r̶e̶n̶t̶ d̶a̶y̶ f̶o̶r̶e̶c̶a̶s̶t̶ c̶a̶r̶d̶ with plan for the day
-  7̶-̶d̶a̶y̶ f̶o̶r̶e̶c̶a̶s̶t̶ b̶e̶l̶o̶w̶ i̶t̶ 
-
-  for plan: return suggestions for clothing to wear depending on forecast 
-  compared to preffered temperature.
-
-  psuedocode:
-  fetch GET from google api: longitude and latitude of zipcode input
-  fetch GET from 7Timer api: civil light data of longitude and latitude
-  change background appearance to match weather for the day
-  update forecast card to display today's forecast
-  if input date != today's date display that date's forecast card first
-  update 7-day forecast card to display 7-day forecast
-  if forecast high > preffered temp, wear cool clothes
-  if forecast high > preffered temp && low < preffered temp bring layers
-  if forecast rain > bring umbrella, windbreaker or rain coat depending on temp
-  if forecast 
-*/
