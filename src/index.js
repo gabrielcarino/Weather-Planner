@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const fetchGeoCode = function (zip, date) {
-    fetch("https://gabrielcarino.github.io/Weather-Planner-API/locations.json")
+    fetch("http://weatherplanner.co/locations.json")
       .then(resp => resp.json())
       .then(locations => {
         const location = locations.find(location => {
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const planCard = document.createElement("div");
     planContainer.append(planCard);
     planCard.className = "plan-card";
-    fetch("https://gabrielcarino.github.io/Weather-Planner-API/tempRecs.json")
+    fetch("http://weatherplanner.co/tempRecs.json")
       .then(resp => resp.json())
       .then(tempRecs => {
         const clothes = document.createElement("div");
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>`
         }
       });
-    fetch("https://gabrielcarino.github.io/Weather-Planner-API/weatherRecs.json")
+    fetch("http://weatherplanner.co/weatherRecs.json")
       .then(resp => resp.json())
       .then(weatherRecs => {
         const gearEl = document.createElement("div");
