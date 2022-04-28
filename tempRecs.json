@@ -1,0 +1,52 @@
+[
+  {
+    "id": 0,
+    "temp": "freezing",
+    "top": "Thick Coat, Thermal long-sleeve, Down jacket",
+    "bottom": "Lined jeans, Leggings, Sweats",
+    "shoes": "Warm boots & thick (wool) socks"
+  },
+  {
+    "id": 1,
+    "temp": "veryCold",
+    "top": "Jacket, Hoodie, Long-sleeve",
+    "bottom": "Jeans, Leggings, Sweats",
+    "shoes": "Boots & warm socks"
+  },
+  {
+    "id": 2,
+    "temp": "cold",
+    "top": "Hoodie, Long-sleeve, T-shirt & Zip-up",
+    "bottom": "Jeans, Leggings, Sweats",
+    "shoes": "Any closed toe shoe"
+  },
+  {
+    "id": 3,
+    "temp": "ideal",
+    "top": "T-shirt, Light jacket or hoodie, Athletic-wear",
+    "bottom": "Jeans, Shorts, Athletic-wear",
+    "shoes": "Tennis-shoes, Sneakers, comfy walking shoes"
+  },
+  {
+    "id": 4,
+    "temp": "warm",
+    "top": "T-shirt, Light button-up or blouse",
+    "bottom": "Linen, shorts, skirts",
+    "shoes": "Sneakers, Sandals, something breathable"
+  },
+  {
+    "id": 5,
+    "temp": "hot",
+    "top": "T-shirt, Tank-top, Light button-up or blouse",
+    "bottom": "Shorts, Skirts, Linen, Sundress",
+    "shoes": "Sandals, light breathable shoes"
+  },
+  {
+    "id": 6,
+    "temp": "blistering",
+    "top": "Swim suit",
+    "bottom": "Swim suit",
+    "shoes": "Flip-flops",
+    "beach": "Go swimming (fill your bathtub with cold water if you have to..."
+  }
+]

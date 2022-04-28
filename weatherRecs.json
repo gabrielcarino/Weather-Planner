@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "weather": "clear", 
+    "gear": [
+      "sunscreen",
+      "hat",
+      "sunglasses",
+      "parasol"
+    ]
+  },
+  {
+    "id": 2,
+    "weather":"pcloudy",
+    "gear": [
+      "sunscreen",
+      "hat",
+      "sunglasses"
+    ]
+  },
+  {
+    "id": 3,
+    "weather": "mcloudy",
+    "gear": [
+      "sunscreen",
+      "extra layer"
+    ]
+  },
+  {
+    "id": 4,
+    "weather": "cloudy",
+    "gear": [
+      "extra layer"
+    ]
+  },
+  {
+    "id": 5,
+    "weather": "humid",
+    "gear": [
+      "breathable clothes"
+    ]
+  },
+  {
+    "id": 6,
+    "weather": "lightrain",
+    "gear": [
+      "wind breaker or light rain jacket",
+      "umbrella"
+    ]
+  },
+  {
+    "id": 7,
+    "weather": "oshower",
+    "gear": [
+      "wind breaker or light rain jacket",
+      "umbrella"
+    ]
+  },
+  {
+    "id": 8,
+    "weather": "ishower",
+    "gear": [
+      "wind breaker or light rain jacket",
+      "umbrella"
+    ]
+  },
+  {
+    "id": 9,
+    "weather": "lightsnow",
+    "gear": [
+      "wind breaker or snow jacket"
+    ]
+  },
+  {
+    "id": 10,
+    "weather": "rain",
+    "gear": [
+      "rain jacket",
+      "umbrella",
+      "waterproof boots"
+    ]
+  },
+  {
+    "id": 11,
+    "weather": "snow",
+    "gear": [
+      "snow jacket",
+      "sunscreen",
+      "beanie"
+    ]
+  },
+  {
+    "id": 12,
+    "weather": "rainsnow",
+    "gear": [
+      "wind breaker or rain jacket",
+      "umbrella"
+    ]
+  }
+]
