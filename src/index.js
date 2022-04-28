@@ -9,14 +9,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("location-form").addEventListener("submit", (e) => {
     e.preventDefault();
-    const date = e.target.date.value;
+    const zipcode = e.target.zip.value;
     const lat = e.target.lat.value;
     const lon = e.target.lon.value;
-    fetchWeather(lon, lat, date);
+    postGeoCode(zipcode, lat, lon);
     e.target.reset();
     document.getElementById("input-form").classList.remove("hidden");
     document.getElementById("location-form").classList.add("hidden");
   });
+
+  const postGeoCode = function (zipcode, lat, lon) {
+    const newLocation = {
+      "zipcode": zipcode,
+      "lat": lat,
+      "lon": lon
+    };
+    const configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(newLocation),
+    }
+    fetch("https://weatherplanner.co/locations.json", configObj)
+  }
 
   const fetchGeoCode = function (zip, date) {
     fetch("https://weatherplanner.co/locations.json")
