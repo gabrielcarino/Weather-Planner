@@ -96,5 +96,22 @@
       "wind breaker or rain jacket",
       "umbrella"
     ]
+  },
+  {
+    "id": 13,
+    "weather": "ts",
+    "gear": [
+      "stay inside if possible, thunderstorm expected"
+    ]
+  },
+  {
+    "id": 14,
+    "weather": "tsrain",
+    "gear": [
+      "rain jacket",
+      "umbrella",
+      "waterproof boots",
+      "stay inside if possible, thunderstorm expected"
+    ]
   }
 ]

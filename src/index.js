@@ -227,6 +227,8 @@ document.addEventListener("DOMContentLoaded", () => {
     Array.from(document.getElementsByClassName("ishower")).forEach(el => el.innerHTML = "iso. rain");
     Array.from(document.getElementsByClassName("lightsnow")).forEach(el => el.innerHTML = "light snow");
     Array.from(document.getElementsByClassName("rainsnow")).forEach(el => el.innerHTML = "sleet");
+    Array.from(document.getElementsByClassName("ts")).forEach(el => el.innerHTML = "thunderstorm");
+    Array.from(document.getElementsByClassName("tsrain")).forEach(el => el.innerHTML = "thunderstorm with rain");
   };
 
   document.getElementById("new-plan").addEventListener("click", () => {
